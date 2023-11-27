@@ -34,7 +34,7 @@ type Client struct {
 
 	// Services for communicating with different parts of the api
 	common  service // Reuse a single struct instead of allocating one for each service on the heap.
-	Dsiplay *DisplayService
+	Display *DisplayService
 }
 
 type service struct {
@@ -59,7 +59,7 @@ func NewClient(token string, httpClient *http.Client) *Client {
 	c.common.client = c
 
 	// Setup services
-	c.Dsiplay = (*DisplayService)(&c.common)
+	c.Display = (*DisplayService)(&c.common)
 
 	return c
 }
